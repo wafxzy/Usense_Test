@@ -1,0 +1,39 @@
+<div class="search-container">
+  <div class="search-input-wrapper">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (input)="searchGIFs()"
+      placeholder="Введіть ключове слово"
+    />
+    <mat-icon class="search-icon">search</mat-icon>
+  </div>
+</div>
+
+<div class="gif-container">
+  <div *ngFor="let gif of gifs" class="gif-item">
+    <img [src]="gif.images.fixed_height.url" [alt]="gif.title" />
+    <p><strong>Автор:</strong> {{ gif.username || "Невідомий" }}</p>
+    <p><strong>Дата:</strong> {{ gif.import_datetime }}</p>
+    <div class="button-container">
+      <button
+        mat-mini-fab
+        class="action-button"
+        (click)="copyLink(gif.url)"
+        matTooltip="Скопіювати посилання"
+      >
+        <span>Копіювати</span>
+        <mat-icon>link</mat-icon>
+      </button>
+      <button
+        mat-mini-fab
+        class="action-button"
+        (click)="downloadGIF(gif.images.original.url)"
+        matTooltip="Завантажити"
+      >
+        <span>Зберегти</span>
+        <mat-icon>download</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
