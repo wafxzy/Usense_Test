@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:Usense_Test": "node dist/usense-test/server/server.mjs"
+    "serve:ssr:Usense_Test": "node dist/usense-test/server/server.mjs",
+    "lint": "eslint \"src/**/*.{ts,html}\" --fix"
   },
   "private": true,
   "dependencies": {
